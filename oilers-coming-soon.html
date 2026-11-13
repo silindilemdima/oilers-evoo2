@@ -170,17 +170,47 @@
     }
 
     .status-label {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      padding-left: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold-primary);
-      margin-bottom: 1rem;
+      font-family: var(--font-serif);
+      font-size: clamp(2.35rem, 7vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: 0.035em;
+      line-height: 1;
+      color: var(--gold-light);
+      margin: 0.35rem 0 1.15rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .status-label .pulse-dot {
+      width: 7px;
+      height: 7px;
+      margin-top: 0.15rem;
+    }
+
+    .contact-prompt {
+      font-family: var(--font-sans);
+      font-size: clamp(0.82rem, 2.3vw, 0.92rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    .contact-prompt a {
+      display: inline-block;
+      color: var(--gold-light);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 165, 28, 0.55);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-prompt a:hover {
+      color: var(--text-primary);
+      border-color: var(--gold-primary);
     }
 
     .pulse-dot {
@@ -199,84 +229,6 @@
       100% { box-shadow: 0 0 0 0 rgba(212, 165, 28, 0); }
     }
 
-    .notify-form {
-      width: 100%;
-      max-width: 440px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    @media (min-width: 520px) {
-      .notify-form {
-        flex-direction: row;
-        gap: 0;
-        border: 1px solid var(--gold-muted);
-        background: rgba(16, 33, 15, 0.82);
-        padding: 0.25rem;
-      }
-    }
-
-    .notify-input {
-      width: 100%;
-      flex: 1;
-      background: rgba(16, 33, 15, 0.92);
-      border: 1px solid var(--gold-muted);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      padding: 0.85rem 1rem;
-      outline: none;
-      border-radius: 0;
-      transition: border-color 0.25s ease;
-    }
-
-    @media (min-width: 520px) {
-      .notify-input {
-        border: none;
-        background: transparent;
-      }
-    }
-
-    .notify-input::placeholder {
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    .notify-input:focus {
-      border-color: var(--gold-primary);
-    }
-
-    .notify-btn {
-      background: var(--gold-primary);
-      color: #10210f;
-      border: none;
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.92rem 1.4rem;
-      cursor: pointer;
-      transition: background-color 0.25s ease, transform 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .notify-btn:hover {
-      background: var(--gold-light);
-    }
-
-    .notify-btn:active {
-      transform: scale(0.99);
-    }
-
-    .form-feedback {
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--gold-light);
-      min-height: 1.2em;
-    }
 
     footer {
       text-align: center;
@@ -383,25 +335,15 @@
         purity and character. Nothing added. Nothing compromised.
       </p>
 
-      <div class="status-label">
+      <h2 class="status-label">
         <span class="pulse-dot" aria-hidden="true"></span>
         Coming Soon
-      </div>
+      </h2>
 
-      <form class="notify-form" id="notifyForm" novalidate>
-        <input
-          class="notify-input"
-          id="emailInput"
-          name="email"
-          type="email"
-          placeholder="Enter your email address"
-          autocomplete="email"
-          aria-label="Email address"
-          required
-        />
-        <button class="notify-btn" type="submit">Notify Me</button>
-      </form>
-      <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+      <p class="contact-prompt">
+        For more information, please email
+        <a href="mailto:info@oilers-evoo.co.za">info@oilers-evoo.co.za</a>
+      </p>
     </main>
 
     <footer class="reveal">
@@ -423,27 +365,6 @@
         document.querySelectorAll('.reveal').forEach((el) => {
           el.classList.add('visible');
         });
-      });
-
-      const notifyForm = document.getElementById('notifyForm');
-      const emailInput = document.getElementById('emailInput');
-      const formFeedback = document.getElementById('formFeedback');
-
-      notifyForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const email = emailInput.value.trim();
-        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-        if (!isValid) {
-          formFeedback.textContent = 'Please enter a valid email address.';
-          emailInput.focus();
-          return;
-        }
-
-        formFeedback.textContent =
-          'Thank you. We will notify you upon our first harvest release.';
-        emailInput.value = '';
       });
 
       const copyBtn = document.getElementById('copyEmailBtn');
