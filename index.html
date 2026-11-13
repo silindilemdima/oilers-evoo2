@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OILERS Extra Virgin Olive Oil | Launching Soon</title>
+  <meta name="description" content="Born of the exceptional terroir of the Western Cape, OILERS Extra Virgin Olive Oil is hand harvested and cold extracted in South Africa." />
+
+  <!-- Google Fonts: Cormorant Garamond & Montserrat (Upright weights only) -->
+  <link rel="preconnect" href="https://googleapis.com" />
+  <link rel="preconnect" href="https://gstatic.com" crossorigin />
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-primary: #111611;
+      --gold-primary: #c8a45d;
+      --gold-light: #e2c685;
+      --gold-muted: rgba(200, 164, 93, 0.25);
+      --text-primary: #f5f2eb;
+      --text-secondary: #c2bdb0;
+      --text-muted: #8d897e;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-style: normal;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(200, 164, 93, 0.09) 0%, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(44, 58, 38, 0.18) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.5rem, 4.5vw, 3rem) clamp(1.1rem, 4.5vw, 2rem);
+    }
+
+    .page-container {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .monogram-wrap {
+      width: clamp(68px, 16vw, 88px);
+      height: clamp(68px, 16vw, 88px);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6.5vw, 2.95rem);
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      padding-left: 0.28em;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.68rem, 2.1vw, 0.8rem);
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      padding-left: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .certification-pill {
+      margin-top: 0.45rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.42rem 0.95rem;
+      border: 1px solid var(--gold-muted);
+      border-radius: 999px;
+      background: rgba(200, 164, 93, 0.05);
+      font-size: clamp(0.62rem, 1.9vw, 0.72rem);
+      font-weight: 500;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      line-height: 1.4;
+      max-width: 100%;
+    }
+
+    main {
+      text-align: center;
+      max-width: 650px;
+      margin: clamp(1.75rem, 5vh, 3.25rem) auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin-bottom: 1.35rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 7.5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--gold-primary);
+    }
+
+    .brand-story {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 2.5vw, 0.98rem);
+      font-weight: 300;
+      line-height: 1.82;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .status-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      padding-left: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--gold-primary);
+      box-shadow: 0 0 0 0 rgba(200, 164, 93, 0.7);
+      animation: pulse 2.2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(200, 164, 93, 0.65); }
+      70% { box-shadow: 0 0 0 8px rgba(200, 164, 93, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 164, 93, 0); }
+    }
+
+    .notify-form {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 520px) {
+      .notify-form {
+        flex-direction: row;
+        gap: 0;
+        border: 1px solid var(--gold-muted);
+        background: rgba(17, 22, 17, 0.75);
+        padding: 0.25rem;
+      }
+    }
+
+    .notify-input {
+      width: 100%;
+      flex: 1;
+      background: rgba(17, 22, 17, 0.85);
+      border: 1px solid var(--gold-muted);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.25s ease;
+    }
+
+    @media (min-width: 520px) {
+      .notify-input {
+        border: none;
+        background: transparent;
+      }
+    }
+
+    .notify-input::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .notify-input:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .notify-btn {
+      background: var(--gold-primary);
+      color: #111611;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.92rem 1.4rem;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .notify-btn:hover {
+      background: var(--gold-light);
+    }
+
+    .notify-btn:active {
+      transform: scale(0.99);
+    }
+
+    .form-feedback {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      min-height: 1.2em;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid rgba(200, 164, 93, 0.14);
+      padding-top: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .trade-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-size: clamp(0.74rem, 2.2vw, 0.82rem);
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .trade-link {
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200, 164, 93, 0.35);
+      padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      word-break: break-all;
+    }
+
+    .trade-link:hover {
+      color: var(--text-primary);
+      border-color: var(--gold-primary);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: var(--gold-light);
+      font-family: var(--font-sans);
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(200, 164, 93, 0.14);
+      border-color: var(--gold-primary);
+    }
+
+    .copyright {
+      font-size: clamp(0.66rem, 2vw, 0.74rem);
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <header class="reveal">
+      <div class="monogram-wrap" aria-label="Oilers monogram: a golden O containing a mountain and olive branch">
+        <svg viewBox="0 0 120 120" width="100%" height="100%" fill="none" xmlns="http://w3.org" role="img">
+          <defs>
+            <linearGradient id="goldGrad" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E5C987" />
+              <stop offset="50%" stop-color="#C8A45D" />
+              <stop offset="100%" stop-color="#9E7B38" />
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="50" stroke="url(#goldGrad)" stroke-width="2.2" />
+          <circle cx="60" cy="60" r="44" stroke="url(#goldGrad)" stroke-width="0.75" stroke-opacity="0.6" />
+          <path d="M16 82 L41 53 L55 68 L74 46 L104 82" stroke="url(#goldGrad)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M41 53 L47 64 L55 68" stroke="url(#goldGrad)" stroke-width="1.1" stroke-opacity="0.7" stroke-linejoin="round" />
+          <path d="M48 85 C45 79, 49 74, 54 78 C53 82, 50 84, 48 85 Z" fill="url(#goldGrad)" />
