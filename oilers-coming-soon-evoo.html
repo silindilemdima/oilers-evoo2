@@ -89,18 +89,6 @@
       flex: 0 1 auto;
     }
 
-    .brand-evoo {
-      flex: 0 0 auto;
-      font-family: var(--font-sans);
-      font-size: clamp(0.85rem, 2.8vw, 1.12rem);
-      font-weight: 400;
-      letter-spacing: 0.20em;
-      line-height: 1.35;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      white-space: nowrap;
-    }
-
     @media (max-width: 380px) {
       .brand-lockup {
         gap: 0.35rem;
@@ -108,11 +96,6 @@
 
       .brand-logo {
         width: clamp(150px, 48vw, 178px);
-      }
-
-      .brand-evoo {
-        font-size: 0.76rem;
-        letter-spacing: 0.14em;
       }
     }
 
@@ -143,6 +126,27 @@
       padding-left: 0.24em;
       text-transform: uppercase;
       color: var(--text-secondary);
+    }
+
+    .brand-evoo {
+      display: block;
+      margin: 0.05rem 0 0.1rem;
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 3.2vw, 1.25rem);
+      font-weight: 300;
+      letter-spacing: 0.24em;
+      padding-left: 0.24em;
+      line-height: 1.25;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 380px) {
+      .brand-evoo {
+        font-size: 0.98rem;
+        letter-spacing: 0.2em;
+      }
     }
 
     .certification-pill {
@@ -398,8 +402,9 @@
         width="478"
         height="710"
         />
-        <span class="brand-evoo">EVOO</span>
       </div>
+
+      <div class="brand-evoo">EVOO</div>
 
       <div class="certification-pill">
         <span>SA Olive CTC Certified</span>
